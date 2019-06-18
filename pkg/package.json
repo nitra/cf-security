@@ -1,0 +1,27 @@
+{
+  "name": "@nitra/cf-security",
+  "description": "check header in cloud functions",
+  "version": "1.0.0",
+  "license": "ISC",
+  "files": [
+    "dist-*/",
+    "bin/"
+  ],
+  "esnext": "dist-src/index.js",
+  "main": "dist-node/index.js",
+  "pika": true,
+  "sideEffects": false,
+  "homepage": "https://github.com/nitra/cf-security#readme",
+  "bugs": {
+    "url": "https://github.com/nitra/cf-security/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitra/cf-security.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@pika/plugin-build-node": "^0.4.0",
+    "@pika/plugin-standard-pkg": "^0.4.0"
+  }
+}
