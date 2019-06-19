@@ -1,7 +1,7 @@
 {
   "name": "@nitra/cf-security",
   "description": "check header in cloud functions",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "ISC",
   "files": [
     "dist-*/",
@@ -20,7 +20,8 @@
     "url": "git+https://github.com/nitra/cf-security.git"
   },
   "dependencies": {
-    "@47ng/check-env": "^1.3.1"
+    "@47ng/check-env": "^1.3.1",
+    "loglevel-colored-level-prefix": "^1.0.0"
   },
   "devDependencies": {
     "@pika/plugin-build-node": "^0.4.0",
