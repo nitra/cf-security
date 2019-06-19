@@ -3,6 +3,9 @@
  * @module @nitra/cf-security
  */
 
+ /**
+ * @const {Function}
+ */
 const checkEnv = require('@47ng/check-env').default
 checkEnv({ required: ['X_NITRA_CF_KEY'] })
 
@@ -13,5 +16,5 @@ checkEnv({ required: ['X_NITRA_CF_KEY'] })
  * @return {boolean} if value equal env
  */
 exports.cfSecurity = function (cfKey) {
-  return cfKey === process.env['X_NITRA_CF_KEY']
+  return cfKey.length > 0 && cfKey === process.env['X_NITRA_CF_KEY']
 }
