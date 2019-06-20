@@ -25,26 +25,22 @@ log.debug('cfSecurity in DEBUG MODE');
 */
 
 exports.cfSecurity = function (req) {
-  let cfKey; // If this ApolloServer reqest
-
-  if (typeof req.headers !== 'undefined') {
-    if (typeof req.headers['x_nitra_cf_key'] === 'undefined') {
-      log.debug(`Nitra key not exist in ApolloServer request`);
-      return false;
-    }
-
-    cfKey = req.headers['x_nitra_cf_key'];
-  } else {
-    // Express request
-    cfKey = req.get('x_nitra_cf_key');
+  if (typeof req.headers === 'undefined') {
+    log.debug(`Request without headers`);
+    return false;
   }
 
-  if (cfKey.length === 0) {
+  if (typeof req.headers['x_nitra_cf_key'] === 'undefined') {
+    log.debug(`Nitra key not exist in request`);
+    return false;
+  }
+
+  if (req.headers['x_nitra_cf_key'].length === 0) {
     log.debug(`Empty Nitra key in headers request`);
     return false;
   }
 
-  if (cfKey !== process.env['X_NITRA_CF_KEY']) {
+  if (req.headers['x_nitra_cf_key'] !== process.env['X_NITRA_CF_KEY']) {
     log.debug(`Not equal Nitra key`);
     return false;
   }

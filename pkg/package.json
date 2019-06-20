@@ -1,7 +1,7 @@
 {
   "name": "@nitra/cf-security",
   "description": "check header in cloud functions",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "ISC",
   "files": [
     "dist-*/",
@@ -26,6 +26,7 @@
   "devDependencies": {
     "@pika/plugin-build-node": "^0.4.0",
     "@pika/plugin-standard-pkg": "^0.4.0",
+    "@types/node": "^12.0.8",
     "standard": "^12.0.1"
   }
 }
