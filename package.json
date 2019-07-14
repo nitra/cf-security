@@ -1,6 +1,6 @@
 {
   "name": "@nitra/cf-security",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "check header in cloud functions",
   "main": "src/index.js",
   "@pika/pack": {
