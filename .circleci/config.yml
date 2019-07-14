@@ -1,0 +1,23 @@
+version: 2
+jobs:
+  # build:
+  #   #...
+  deploy:
+    branches:
+      only:
+        - master
+    working_directory: ~/repo
+    steps:
+      - checkout
+      # - run:
+      #     name: run deployment script
+      #     command: ./bin/deployment-script.sh
+      - add_ssh_keys:
+          fingerprints:
+            - "89:11:ef:50:d2:9d:0f:0c:6b:fa:53:a0:cc:e5:3c:6c"
+      - run:
+          name: fix host authenticity for production server
+          command: ssh-keyscan db2.skyline.kh.ua >> ~/.ssh/known_hosts
+      - run:
+          name: deploy app
+          command: scp /etc/hosts vitalik@db2.skyline.kh.ua:/home/vitalik/www
