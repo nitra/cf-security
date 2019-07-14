@@ -3,7 +3,7 @@ jobs:
   # build:
   #   #...
   deploy:
-    branches:
+    branches: 
       only:
         - master
     working_directory: ~/repo
