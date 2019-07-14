@@ -7,8 +7,6 @@
     "dist-*/",
     "bin/"
   ],
-  "esnext": "dist-src/index.js",
-  "main": "dist-node/index.js",
   "pika": true,
   "sideEffects": false,
   "homepage": "https://github.com/nitra/cf-security#readme",
@@ -26,7 +24,9 @@
   "devDependencies": {
     "@pika/plugin-build-node": "^0.4.0",
     "@pika/plugin-standard-pkg": "^0.4.0",
-    "@types/node": "^12.0.8",
-    "standard": "^12.0.1"
-  }
+    "@types/node": "^12.6.2",
+    "standard": "^13.0.2"
+  },
+  "esnext": "dist-src/index.js",
+  "main": "dist-node/index.js"
 }

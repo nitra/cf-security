@@ -14,7 +14,8 @@
     ]
   },
   "scripts": {
-    "fix": "standard --fix"
+    "fix": "standard --fix",
+    "version": "npx @pika/pack build"
   },
   "repository": {
     "type": "git",
@@ -29,8 +30,8 @@
   "devDependencies": {
     "@pika/plugin-build-node": "^0.4.0",
     "@pika/plugin-standard-pkg": "^0.4.0",
-    "@types/node": "^12.0.8",
-    "standard": "^12.0.1"
+    "@types/node": "^12.6.2",
+    "standard": "^13.0.2"
   },
   "dependencies": {
     "@47ng/check-env": "^1.3.1",
