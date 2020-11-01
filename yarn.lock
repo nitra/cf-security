@@ -2,15 +2,10 @@
 # yarn lockfile v1
 
 
-"@47ng/check-env@^1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@47ng/check-env/-/check-env-1.3.1.tgz#de799d688a0f7ee882aae2ec8e5f82d9e51278d3"
-  integrity sha512-rILym2OkeEpAA+rUDv32Hd7Wr2M1F0+GZv0VmQnqLhVV3+u7Im3CctEaZSlXiwVOj9yogpSuoiHukbow/kpz1Q==
-
-"@types/node@^14.14.6":
-  version "14.14.6"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.6.tgz#146d3da57b3c636cc0d1769396ce1cfa8991147f"
-  integrity sha512-6QlRuqsQ/Ox/aJEQWBEJG7A9+u7oSYl3mem/K8IzxXG/kAGbV1YPD9Bg9Zw3vyxC/YP+zONKwy8hGkSt1jxFMw==
+"@47ng/check-env@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@47ng/check-env/-/check-env-2.0.1.tgz#f969aab80d7eeb4194c53bc69451b8cefdd69777"
+  integrity sha512-4nvyNY3fQs4SnTyVxpjpPoBwYfsGbM2TDAidZg+vYM/HTD126JOpw8sv+44U+V3WiqaDYhrzJXhkSSLCbZWDJw==
 
 ansi-regex@^2.0.0:
   version "2.1.1"
