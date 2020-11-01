@@ -1,2 +1,3 @@
 # cf-security
-Check security header in CF
+
+Check security header (X_NITRA_CF_KEY) in CF

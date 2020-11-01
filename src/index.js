@@ -13,30 +13,30 @@ const log = require('loglevel-colored-level-prefix')()
 log.debug('cfSecurity in DEBUG MODE')
 
 /**
-* Check request for Nitra security rules
-*
-* @param {object} req - ApolloServer or Express Request for check
-* @return {boolean} if check passed
-*/
+ * Check request for Nitra security rules
+ *
+ * @param {object} req - ApolloServer or Express Request for check
+ * @return {boolean} if check passed
+ */
 
 exports.cfSecurity = function (req) {
   if (typeof req.headers === 'undefined') {
-    log.debug(`Request without headers`)
+    log.debug('Request without headers')
     return false
   }
 
-  if (typeof req.headers['x_nitra_cf_key'] === 'undefined') {
-    log.debug(`Nitra key not exist in request`)
+  if (typeof req.headers.x_nitra_cf_key === 'undefined') {
+    log.debug('Nitra key not exist in request')
     return false
   }
 
-  if (req.headers['x_nitra_cf_key'].length === 0) {
-    log.debug(`Empty Nitra key in headers request`)
+  if (req.headers.x_nitra_cf_key.length === 0) {
+    log.debug('Empty Nitra key in headers request')
     return false
   }
 
-  if (req.headers['x_nitra_cf_key'] !== process.env['X_NITRA_CF_KEY']) {
-    log.debug(`Not equal Nitra key`)
+  if (req.headers.x_nitra_cf_key !== process.env.X_NITRA_CF_KEY) {
+    log.debug('Not equal Nitra key')
     return false
   }
 
