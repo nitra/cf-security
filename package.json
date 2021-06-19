@@ -1,6 +1,6 @@
 {
   "name": "@nitra/cf-security",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "check header in cloud functions",
   "main": "src/index.js",
   "scripts": {
