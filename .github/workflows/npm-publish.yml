@@ -14,11 +14,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Generate Changelog
-        run: echo "# Good things have arrived" > CHANGELOG.md
-      - name: Release
+        uses: scottbrenner/generate-changelog-action@master
+        id: Changelog
+      - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          body_path: CHANGELOG.md
+          body: |
+            ${{ steps.Changelog.outputs.changelog }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: JS-DevTools/npm-publish@v1
