@@ -1,7 +1,10 @@
 /**
  * CF Security module
+ *
  * @module @nitra/cf-security
  */
+
+const consola = require('consola')
 
 /**
  * @const {Function}
@@ -9,8 +12,7 @@
 const checkEnv = require('@47ng/check-env').default
 checkEnv({ required: ['X_NITRA_CF_KEY'] })
 
-const log = require('loglevel-colored-level-prefix')()
-log.debug('cfSecurity in DEBUG MODE')
+consola.debug('cfSecurity in DEBUG MODE')
 
 /**
  * Check request for Nitra security rules
@@ -21,22 +23,22 @@ log.debug('cfSecurity in DEBUG MODE')
 
 exports.cfSecurity = function (req) {
   if (typeof req.headers === 'undefined') {
-    log.debug('Request without headers')
+    consola.debug('Request without headers')
     return false
   }
 
-  if (typeof req.headers.x_nitra_cf_key === 'undefined') {
-    log.debug('Nitra key not exist in request')
+  if (typeof req.headers['x-nitra-cf-key'] === 'undefined') {
+    consola.debug('Nitra key not exist in request')
     return false
   }
 
-  if (req.headers.x_nitra_cf_key.length === 0) {
-    log.debug('Empty Nitra key in headers request')
+  if (req.headers['x-nitra-cf-key'] === 0) {
+    consola.debug('Empty Nitra key in headers request')
     return false
   }
 
-  if (req.headers.x_nitra_cf_key !== process.env.X_NITRA_CF_KEY) {
-    log.debug('Not equal Nitra key')
+  if (req.headers['x-nitra-cf-key'] !== process.env.X_NITRA_CF_KEY) {
+    consola.debug('Not equal Nitra key')
     return false
   }
 
