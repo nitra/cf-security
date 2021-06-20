@@ -1,5 +1,7 @@
 # cf-security
 
+[![GitHub Super-Linter](https://github.com/nitra/cf-security/workflows/npm-publish/badge.svg)](https://github.com/marketplace/actions/super-linter)
+
 Check security header in Cloud Functions
 
 ```
