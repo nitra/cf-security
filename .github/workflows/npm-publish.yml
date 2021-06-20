@@ -10,13 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+        # with:
+        #   fetch-depth: 0
       - name: Generate Changelog
         uses: scottbrenner/generate-changelog-action@master
         id: Changelog
         with:
-          allow-unknown: true
+          from-tag: v1.0.5
+          allow-unknown: 1
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
