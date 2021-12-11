@@ -1,18 +1,6 @@
-/**
- * CF Security module
- *
- * @module @nitra/cf-security
- */
-
-const consola = require('consola')
-
-/**
- * @const {Function}
- */
-const checkEnv = require('@47ng/check-env').default
-checkEnv({ required: ['X_NITRA_CF_KEY'] })
-
-consola.debug('cfSecurity in DEBUG MODE')
+import consola from '@nitra/consola'
+import checkEnv from '@nitra/check-env'
+checkEnv(['X_NITRA_CF_KEY'])
 
 /**
  * Check request for Nitra security rules
@@ -20,8 +8,7 @@ consola.debug('cfSecurity in DEBUG MODE')
  * @param {object} req - ApolloServer or Express Request for check
  * @return {boolean} if check passed
  */
-
-exports.cfSecurity = function (req) {
+export const cfSecurity = req => {
   if (typeof req.headers === 'undefined') {
     consola.debug('Request without headers')
     return false

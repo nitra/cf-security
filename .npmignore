@@ -1,1 +1,5 @@
 yarn.lock
+test/
+.github/
+.cspell.json
+.env
