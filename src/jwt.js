@@ -13,9 +13,7 @@ checkEnv(['ALLOWED_ROLES'])
  */
 export default async req => {
   if (isDev) {
-    const token = {}
-    token['https://hasura.io/jwt/claims']['x-hasura-allowed-roles'] = process.env.ALLOWED_ROLES.split(',')
-    return token
+    return { 'https://hasura.io/jwt/claims': { 'x-hasura-allowed-roles': process.env.ALLOWED_ROLES.split(',') } }
   }
 
   const log = getLogger(req)
