@@ -2,40 +2,32 @@ name: npm-publish
 
 on:
   push:
-    tags:
-      - 'v*.*.*'
+    branches:
+      - main
 
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
+
+    # Add "id-token" with the intended permissions.
+    permissions:
+      contents: "read"
+      id-token: "write"
+
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+
+      - id: "auth"
+        name: "Authenticate to Google Cloud"
+        uses: "google-github-actions/auth@v0"
         with:
-          # Full git history is needed to get a proper list of changed files within `super-linter` and for Changelog
-          fetch-depth: 0
+          workload_identity_provider: "projects/753698311885/locations/global/workloadIdentityPools/github-pool/providers/github-provider"
+          service_account: "github-service-account@nitraai.iam.gserviceaccount.com"
 
-      ################################
-      # Run Linter against code base #
-      ################################
-      - name: Lint Code Base
-        uses: docker://ghcr.io/github/super-linter:slim-v4
-        env:
-          VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: JS-DevTools/npm-publish@v1
+      - id: secrets
+        uses: google-github-actions/get-secretmanager-secrets@main
         with:
-          token: ${{ secrets.NPM_TOKEN }}
-          access: public
-
-      - uses: scottbrenner/generate-changelog-action@master
-        id: Changelog
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          body: |
-            ${{ steps.Changelog.outputs.changelog }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          secrets: |-
+            npm-token:nitraai/npm-token
+      - name: publish
+        run: npx @jsdevtools/npm-publish --token=${{ steps.secrets.outputs.npm-token }} --access=public
