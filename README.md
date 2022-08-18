@@ -17,3 +17,17 @@ exports.function = async (req, res) => {
     return
   }
 ```
+
+```HTTP
+ALLOWED_ROLES: role1,role2
+```
+
+```JavaScript
+import runSecurity from '@nitra/cf-security'
+
+exports.function = async (req, res) => {
+  if (!runSecurity(req)) {
+    res.send(`Nitra security not passed`)
+    return
+  }
+```
