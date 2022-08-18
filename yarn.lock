@@ -1889,9 +1889,9 @@ ncp@~2.0.0:
   resolved "https://registry.yarnpkg.com/ncp/-/ncp-2.0.0.tgz#195a21d6c46e361d2fb1281ba38b91e9df7bdbb3"
   integrity sha512-zIdGUrPRFTUELUvr3Gmc7KZ2Sw/h1PiVM0Af/oHB6zgnV1ikqSfRk+TOufi79aHYCW3NiOXmr1BP5nWbzojLaA==
 
-"njwt@git+https://github.com/vitaliytv/njwt.git":
+"njwt@https://github.com/vitaliytv/njwt.git":
   version "1.2.1"
-  resolved "git+https://github.com/vitaliytv/njwt.git#7fd24b8f4f36023372379c03c5d74c96e08bd8b8"
+  resolved "https://github.com/vitaliytv/njwt.git#7fd24b8f4f36023372379c03c5d74c96e08bd8b8"
   dependencies:
     "@types/node" "^15.0.1"
     ecdsa-sig-formatter "^1.0.5"

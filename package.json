@@ -1,6 +1,6 @@
 {
   "name": "@nitra/cf-security",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "check header in cloud functions",
   "type": "module",
   "exports": {
@@ -36,6 +36,7 @@
   "dependencies": {
     "@nitra/bunyan": "^1.1.1",
     "@nitra/check-env": "^2.0.1",
+    "@nitra/isenv": "^2.0.1",
     "@nitra/jwt": "^3.1.2"
   },
   "files": [

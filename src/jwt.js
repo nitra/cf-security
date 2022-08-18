@@ -1,6 +1,7 @@
 import getLogger from '@nitra/bunyan/trace'
 import checkEnv from '@nitra/check-env'
 import verify from '@nitra/jwt/verify'
+import { isDev } from '@nitra/isenv'
 
 checkEnv(['ALLOWED_ROLES'])
 
@@ -11,6 +12,12 @@ checkEnv(['ALLOWED_ROLES'])
  * @return {string} token if check passed
  */
 export default async req => {
+  if (isDev) {
+    const token = {}
+    token['https://hasura.io/jwt/claims']['x-hasura-allowed-roles'] = process.env.ALLOWED_ROLES.split(',')
+    return token
+  }
+
   const log = getLogger(req)
 
   // Перевіряємо токен тільки
