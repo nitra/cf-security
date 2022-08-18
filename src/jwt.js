@@ -1,9 +1,6 @@
 import getLogger from '@nitra/bunyan/trace'
-import checkEnv from '@nitra/check-env'
 import verify from '@nitra/jwt/verify'
 import { isDev } from '@nitra/isenv'
-
-checkEnv(['ALLOWED_ROLES'])
 
 /**
  * Check request for Nitra security rules WI
@@ -11,9 +8,9 @@ checkEnv(['ALLOWED_ROLES'])
  * @param {object} req - Fastify  Request for check
  * @return {string} token if check passed
  */
-export default async req => {
+export default async (req, allowedRoles) => {
   if (isDev) {
-    return { 'https://hasura.io/jwt/claims': { 'x-hasura-allowed-roles': process.env.ALLOWED_ROLES.split(',') } }
+    return { 'https://hasura.io/jwt/claims': { 'x-hasura-allowed-roles': allowedRoles } }
   }
 
   const log = getLogger(req)
@@ -33,9 +30,6 @@ export default async req => {
   }
 
   const roleArray = token.body['https://hasura.io/jwt/claims']['x-hasura-allowed-roles']
-
-  const allowedRoles = process.env.ALLOWED_ROLES.split(',')
-
   const intersectRoles = intersection(roleArray, allowedRoles)
 
   if (intersectRoles.length === 0) {

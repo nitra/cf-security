@@ -12,12 +12,15 @@ tests.add('cf', () => {
 })
 
 tests.add('jwt', async () => {
-  const re = await runSecurity({
-    headers: {
-      authorization:
-        'Bearer eyJhbGciOiJFUzI1NiJ9.eyJpYXQiOjE2NDMzOTI4NDQsIm5iZiI6MTY0MzM5Mjg0NCwiZXhwIjoxNjQzNDc5MjQ0LCJpc3MiOiJhYmllIiwiaHR0cHM6XC9cL2hhc3VyYS5pb1wvand0XC9jbGFpbXMiOnsieC1oYXN1cmEtY2Fwcy1pZCI6IjQ0MDkiLCJ4LWhhc3VyYS1jYXBzLXVzZXJuYW1lIjoiYnVnYWlldmcifX0.v24fItY83zKB92T2XGq6Bb12kx_LfDchl'
-    }
-  })
+  const re = await runSecurity(
+    {
+      headers: {
+        authorization:
+          'Bearer eyJhbGciOiJFUzI1NiJ9.eyJpYXQiOjE2NDMzOTI4NDQsIm5iZiI6MTY0MzM5Mjg0NCwiZXhwIjoxNjQzNDc5MjQ0LCJpc3MiOiJhYmllIiwiaHR0cHM6XC9cL2hhc3VyYS5pb1wvand0XC9jbGFpbXMiOnsieC1oYXN1cmEtY2Fwcy1pZCI6IjQ0MDkiLCJ4LWhhc3VyYS1jYXBzLXVzZXJuYW1lIjoiYnVnYWlldmcifX0.v24fItY83zKB92T2XGq6Bb12kx_LfDchl'
+      }
+    },
+    ['admin']
+  )
 
   equal(re, false)
 })
