@@ -1,4 +1,3 @@
-import getLogger from '@nitra/bunyan/trace'
 import verify from '@nitra/jwt/verify'
 import { isDev } from '@nitra/isenv'
 
@@ -13,28 +12,23 @@ export default async (req, allowedRoles) => {
     return { 'https://hasura.io/jwt/claims': { 'x-hasura-allowed-roles': allowedRoles } }
   }
 
-  const log = getLogger(req)
-
   // Перевіряємо токен тільки
   if (!req.headers?.authorization) {
-    log.info('[verification] no authorization data')
-    return false
+    throw new Error('[verification] no authorization header')
   }
 
   const authHeaders = req.headers.authorization.split(' ')
   const token = await verify(authHeaders[1])
 
   if (!token) {
-    log.info('[verification] invalid token')
-    return false
+    throw new Error('[verification] invalid token')
   }
 
   const roleArray = token.body['https://hasura.io/jwt/claims']['x-hasura-allowed-roles']
   const intersectRoles = intersection(roleArray, allowedRoles)
 
   if (intersectRoles.length === 0) {
-    log.info('[verification] invalid all roles')
-    return false
+    throw new Error(`[verification] unallowed roles ${roleArray}`)
   }
 
   return token.body
