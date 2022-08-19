@@ -9,7 +9,7 @@ import { isDev } from '@nitra/isenv'
  */
 export default async (req, allowedRoles) => {
   if (isDev) {
-    return { 'https://hasura.io/jwt/claims': { 'x-hasura-allowed-roles': allowedRoles } }
+    return { name: 'dev', 'https://hasura.io/jwt/claims': { 'x-hasura-allowed-roles': allowedRoles } }
   }
 
   // Перевіряємо токен тільки
