@@ -172,16 +172,25 @@
   resolved "https://registry.yarnpkg.com/@nitra/isenv/-/isenv-2.0.1.tgz#bd1c09609412787fc9b0460ccf9e2b3bf32b5b0d"
   integrity sha512-MZEOmA36RNe455xWlnA4aHy4WvPur7+cNT8JEKjiS5I2KabBO1SxGqNIJP4/kmMnNyU6sHZj2Ihdf2Qr7QG3yQ==
 
-"@nitra/jwt@^3.1.2":
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/@nitra/jwt/-/jwt-3.1.2.tgz#f4e070fe207796710410d87af0197600f8d89f8f"
-  integrity sha512-918wCez4fIhS+Qvf+1KsYW9tju6jXF+V+d2Z2cRD7jE/5KXNRbzOXBOMPiE2M0b3Oz2f65V0CLKkH2+09xNJXA==
+"@nitra/jwt@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@nitra/jwt/-/jwt-3.2.0.tgz#63d702ea8a0ec2a875d3434d36ede08efa7f1dd2"
+  integrity sha512-HzFz03U8Mkb+cuFksnLDHfF2RPOCyFC/KYXal2UADyd7ylxnzeZHsiMKNXNEiZy2dCm8A+E0YThzCWN1RUEuZg==
   dependencies:
     "@nitra/check-env" "^2.0.2"
     "@nitra/isenv" "^2.0.1"
+    "@nitra/njwt" "^1.2.2"
     get-jwks "^4.3.0"
     jsrsasign "^10.4.1"
-    njwt "https://github.com/vitaliytv/njwt.git"
+
+"@nitra/njwt@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@nitra/njwt/-/njwt-1.2.2.tgz#3d849d01553b96bf2aa814c226edfd4d013194ea"
+  integrity sha512-/GCjEIsnfd6L/C5A1RcC9XJMtnaYz0x+1U/7ho1Ey4z/VY9isHZwFb83bZWhbNzzGF8zhbxwWga8Y0upr/nOQQ==
+  dependencies:
+    "@types/node" "^15.0.1"
+    ecdsa-sig-formatter "^1.0.5"
+    uuid "^8.3.2"
 
 "@nitra/prettier-config@^1.0.1":
   version "1.0.1"
@@ -1888,14 +1897,6 @@ ncp@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ncp/-/ncp-2.0.0.tgz#195a21d6c46e361d2fb1281ba38b91e9df7bdbb3"
   integrity sha512-zIdGUrPRFTUELUvr3Gmc7KZ2Sw/h1PiVM0Af/oHB6zgnV1ikqSfRk+TOufi79aHYCW3NiOXmr1BP5nWbzojLaA==
-
-"njwt@https://github.com/vitaliytv/njwt.git":
-  version "1.2.1"
-  resolved "https://github.com/vitaliytv/njwt.git#7fd24b8f4f36023372379c03c5d74c96e08bd8b8"
-  dependencies:
-    "@types/node" "^15.0.1"
-    ecdsa-sig-formatter "^1.0.5"
-    uuid "^8.3.2"
 
 node-fetch@^2.6.1, node-fetch@^2.6.7:
   version "2.6.7"
