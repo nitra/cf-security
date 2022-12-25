@@ -13,7 +13,8 @@ export default async (req, allowedRoles) => {
     // Але якщо передали - то беремо контент з нього
     if (req.headers?.authorization) {
       // ігноруючи expired
-      return verify(req.headers.authorization.split(' ')[1], { ignoreExpiration: true })
+      const token = await verify(req.headers.authorization.split(' ')[1], { ignoreExpiration: true })
+      return token.body
     } else {
       return { name: 'dev', 'https://hasura.io/jwt/claims': { 'x-hasura-allowed-roles': allowedRoles } }
     }
