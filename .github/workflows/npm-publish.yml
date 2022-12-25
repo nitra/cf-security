@@ -11,23 +11,28 @@ jobs:
 
     # Add "id-token" with the intended permissions.
     permissions:
-      contents: "read"
-      id-token: "write"
+      contents: 'read'
+      id-token: 'write'
 
     steps:
       - uses: actions/checkout@v3
 
-      - id: "auth"
-        name: "Authenticate to Google Cloud"
-        uses: "google-github-actions/auth@v0"
+      - id: 'auth'
+        name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v0'
         with:
-          workload_identity_provider: "projects/753698311885/locations/global/workloadIdentityPools/github-pool/providers/github-provider"
-          service_account: "github-service-account@nitraai.iam.gserviceaccount.com"
+          workload_identity_provider: 'projects/753698311885/locations/global/workloadIdentityPools/github-pool/providers/github-provider'
+          service_account: 'github-service-account@nitraai.iam.gserviceaccount.com'
 
       - id: secrets
         uses: google-github-actions/get-secretmanager-secrets@main
         with:
           secrets: |-
             npm-token:nitraai/npm-token
+
       - name: publish
-        run: npx @jsdevtools/npm-publish --token=${{ steps.secrets.outputs.npm-token }} --access=public
+        run: >-
+          npx @jsdevtools/npm-publish 
+          --token=${{ steps.secrets.outputs.npm-token }} 
+          --access=public 
+          npm/package.json

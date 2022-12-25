@@ -8,8 +8,15 @@ import { isDev } from '@nitra/isenv'
  * @return {string} token if check passed
  */
 export default async (req, allowedRoles) => {
+  // Для дева можна й не передавати токен
   if (isDev) {
-    return { name: 'dev', 'https://hasura.io/jwt/claims': { 'x-hasura-allowed-roles': allowedRoles } }
+    // Але якщо передали - то беремо контент з нього
+    if (req.headers?.authorization) {
+      // ігноруючи expired
+      return verify(req.headers.authorization.split(' ')[1], { ignoreExpiration: true })
+    } else {
+      return { name: 'dev', 'https://hasura.io/jwt/claims': { 'x-hasura-allowed-roles': allowedRoles } }
+    }
   }
 
   // Перевіряємо токен тільки

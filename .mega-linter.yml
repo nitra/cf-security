@@ -1,0 +1,11 @@
+# Configuration file for Mega-Linter
+# See all available variables at https://megalinter.github.io/configuration/ and in linters documentation
+
+PRINT_ALPACA: false
+APPLY_FIXES: all # all, none, or list of linter keys
+DEFAULT_BRANCH: main # Usually master or main
+JAVASCRIPT_DEFAULT_STYLE: prettier
+
+DISABLE_LINTERS:
+  - CREDENTIALS_SECRETLINT
+  - MARKDOWN_MARKDOWN_LINK_CHECK

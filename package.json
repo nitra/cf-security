@@ -1,15 +1,13 @@
 {
-  "name": "@nitra/cf-security",
-  "version": "3.2.0",
-  "description": "check header in cloud functions",
+  "name": "nitra-cf-security",
+  "version": "1.0.1",
+  "description": "jwt create verify",
   "type": "module",
-  "exports": {
-    ".": "./src/index.js",
-    "./jwt": "./src/jwt.js"
-  },
+  "workspaces": [
+    "npm"
+  ],
   "scripts": {
-    "fix": "npx eslint --fix . && npx prettier --write . ",
-    "test": "env $(cat ./test/.env) npx coverage-node test/index.js"
+    "fix": "npx eslint --fix . && npx prettier --write . "
   },
   "repository": {
     "type": "git",
@@ -21,28 +19,22 @@
     "url": "https://github.com/nitra/cf-security/issues"
   },
   "homepage": "https://github.com/nitra/cf-security#readme",
+  "devDependencies": {
+    "@cspell/dict-ru_ru": "^2.0.2",
+    "@cspell/dict-uk-ua": "^1.0.20",
+    "@nitra/cspell-dict": "^1.0.8",
+    "@nitra/eslint-config": "^1.0.8",
+    "@nitra/prettier-config": "^1.0.0"
+  },
   "prettier": "@nitra/prettier-config",
+  "packageManager": "yarn@3.3.1",
   "eslintConfig": {
     "extends": [
-      "@nitra/eslint-config/node"
+      "@nitra"
     ],
     "root": true
   },
-  "devDependencies": {
-    "@nitra/eslint-config": "^1.0.9",
-    "@nitra/prettier-config": "^1.0.1",
-    "test-director": "^7.0.0"
-  },
   "dependencies": {
-    "@nitra/bunyan": "^1.1.1",
-    "@nitra/check-env": "^2.0.1",
-    "@nitra/isenv": "^2.0.1",
-    "@nitra/jwt": "^3.2.0"
-  },
-  "files": [
-    "src"
-  ],
-  "engines": {
-    "node": ">=16.0.0"
+    "pem-jwk": "^2.0.0"
   }
 }

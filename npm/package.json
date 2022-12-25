@@ -1,0 +1,46 @@
+{
+  "name": "@nitra/cf-security",
+  "version": "3.3.0",
+  "description": "check header in cloud functions",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.js",
+    "./jwt": "./src/jwt.js"
+  },
+  "scripts": {
+    "test": "env $(cat ./test/.env) npx coverage-node test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitra/cf-security.git"
+  },
+  "author": "v@nitra.ai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nitra/cf-security/issues"
+  },
+  "homepage": "https://github.com/nitra/cf-security#readme",
+  "prettier": "@nitra/prettier-config",
+  "eslintConfig": {
+    "extends": [
+      "@nitra/eslint-config/node"
+    ]
+  },
+  "devDependencies": {
+    "@nitra/eslint-config": "^1.0.9",
+    "@nitra/prettier-config": "^1.0.1",
+    "test-director": "^7.0.0"
+  },
+  "dependencies": {
+    "@nitra/bunyan": "^1.1.1",
+    "@nitra/check-env": "^2.0.1",
+    "@nitra/isenv": "^2.0.1",
+    "@nitra/jwt": "^3.3.0"
+  },
+  "files": [
+    "src"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

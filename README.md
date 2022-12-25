@@ -1,28 +1,7 @@
-# cf-security
+# jwt
 
-[![GitHub Super-Linter](https://github.com/nitra/cf-security/workflows/npm-publish/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![Mega-Linter](https://github.com/nitra/jwt/workflows/Mega-Linter/badge.svg?branch=main)](https://github.com/nitra/jwt/actions?query=workflow%3AMega-Linter+branch%3Amain)
 
-Check security header in Cloud Functions
+## Generate ES256 key
 
-```HTTP
-X_NITRA_CF_KEY: secret
-```
-
-```JavaScript
-const { cfSecurity } = require('@nitra/cf-security')
-
-exports.function = async (req, res) => {
-  if (!cfSecurity(req)) {
-    res.send(`Nitra security not passed`)
-    return
-  }
-```
-
-```JavaScript
-import runSecurity from '@nitra/cf-security'
-
-  if (!runSecurity(req, ["role1","role2"])) {
-    res.send(`Nitra security not passed`)
-    return
-  }
-```
+https://8gwifi.org/jwsgen.jsp
