@@ -1,11 +1,12 @@
 {
   "name": "@nitra/cf-security",
-  "version": "3.3.1",
+  "version": "3.3.2",
   "description": "check header in cloud functions",
   "type": "module",
   "exports": {
     ".": "./src/index.js",
-    "./jwt": "./src/jwt.js"
+    "./jwt": "./src/jwt.js",
+    "./jwt-c": "./src/jwt-c.js"
   },
   "scripts": {
     "test": "env $(cat ./test/.env) npx coverage-node test/index.js"
