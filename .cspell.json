@@ -1,7 +1,14 @@
 {
   "version": "0.2",
   "language": "en,uk,ru-ru,nitra",
-  "ignorePaths": ["**/node_modules/**", "**/vscode-extension/**", "**/.git/**", ".vscode", "report", "yarn.lock"],
+  "ignorePaths": [
+    "**/node_modules/**",
+    "**/vscode-extension/**",
+    "**/.git/**",
+    ".vscode",
+    "report",
+    "yarn.lock"
+  ],
   "import": [
     "@nitra/cspell-dict/cspell-ext.json",
     "@cspell/dict-ru_ru/cspell-ext.json",
@@ -43,6 +50,7 @@
     "Ynri",
     "Zwim",
     "інбева",
+    "кукі",
     "прода",
     "проду",
     "токеном"

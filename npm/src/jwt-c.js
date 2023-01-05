@@ -8,15 +8,19 @@ import { isDev } from '@nitra/isenv'
  * @return {string} token if check passed
  */
 export default async (req, allowedRoles) => {
+  if (!req.raw.headers?.cookie) {
+    throw new Error('[verification] missing cookie')
+  }
+
   // Читаємо кукі
   const c = Object.fromEntries(req.raw.headers.cookie.split('; ').map(v => v.split(/=(.*)/s).map(decodeURIComponent)))
 
   // Для дева можна й не передавати токен
   if (isDev) {
     // Але якщо передали - то беремо контент з нього
-    if (c['jwt-auth']) {
+    if (c.__session) {
       // ігноруючи expired
-      const token = await verify(c['jwt-auth'], { ignoreExpiration: true })
+      const token = await verify(c.__session, { ignoreExpiration: true })
       return token.body
     } else {
       return { name: 'dev', 'https://hasura.io/jwt/claims': { 'x-hasura-allowed-roles': allowedRoles } }
@@ -24,11 +28,11 @@ export default async (req, allowedRoles) => {
   }
 
   // Перевіряємо токен тільки
-  if (!c['jwt-auth']) {
+  if (!c.__session) {
     throw new Error('[verification] no authorization header')
   }
 
-  const token = await verify(c['jwt-auth'])
+  const token = await verify(c.__session)
 
   if (!token) {
     throw new Error('[verification] invalid token')
