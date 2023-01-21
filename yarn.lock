@@ -232,10 +232,8 @@ __metadata:
   dependencies:
     "@nitra/bunyan": ^1.1.1
     "@nitra/check-env": ^2.0.1
-    "@nitra/eslint-config": ^1.0.9
     "@nitra/isenv": ^2.0.1
     "@nitra/jwt": ^3.3.0
-    "@nitra/prettier-config": ^1.0.1
     test-director: ^7.0.0
   languageName: unknown
   linkType: soft
@@ -254,7 +252,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nitra/eslint-config@npm:^1.0.8, @nitra/eslint-config@npm:^1.0.9":
+"@nitra/eslint-config@npm:^1.0.8":
   version: 1.0.30
   resolution: "@nitra/eslint-config@npm:1.0.30"
   dependencies:
@@ -303,7 +301,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nitra/prettier-config@npm:^1.0.0, @nitra/prettier-config@npm:^1.0.1":
+"@nitra/prettier-config@npm:^1.0.0":
   version: 1.0.1
   resolution: "@nitra/prettier-config@npm:1.0.1"
   checksum: e058fa97c025f33bd1a75444013f7ce9e4a5f52f7a7837c3b1d1b0c406de1dd1868990270223799b597a860522407702317291221deb48a3bc688cdaf7030495

@@ -1,6 +1,6 @@
 {
   "name": "nitra-cf-security",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "jwt create verify",
   "type": "module",
   "workspaces": [
