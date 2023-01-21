@@ -1,8 +1,7 @@
 {
   "name": "@nitra/cf-security",
-  "version": "3.4.0",
-  "description": "check header in cloud functions",
-  "main": "src/index.js",
+  "version": "4.0.0",
+  "description": "check header in serverless",
   "type": "module",
   "exports": {
     ".": "./src/index.js",

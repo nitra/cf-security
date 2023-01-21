@@ -7,7 +7,7 @@ checkEnv(['X_NITRA_CF_KEY'])
  * @param {object} req - ApolloServer or Express Request for check
  * @return {boolean} if check passed
  */
-export const cfSecurity = req => {
+export default function (req) {
   if (typeof req.headers === 'undefined') {
     req.log.info('Request without headers')
     return false
