@@ -5,7 +5,8 @@ import { isDev } from '@nitra/isenv'
  * Check request for Nitra security rules WI
  *
  * @param {object} req - Fastify  Request for check
- * @return {string} token if check passed
+ * @param {Array} allowedRoles - Allowed roles
+ * @return {Promise<string>} token if check passed
  */
 export default async (req, allowedRoles) => {
   // Для дева можна й не передавати токен
