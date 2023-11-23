@@ -15,9 +15,19 @@ export default async (req, allowedRoles) => {
     if (req.headers?.authorization) {
       // ігноруючи expired
       const token = await verify(req.headers.authorization.split(' ')[1], { ignoreExpiration: true })
+
+      const intersectRoles = intersection(
+        token.body['https://hasura.io/jwt/claims']['x-hasura-allowed-roles'],
+        allowedRoles
+      )
+
+      if (intersectRoles.length === 0) {
+        throw new Error(`[verification] unallowed roles ${allowedRoles}`)
+      }
+
       return token.body
     } else {
-      return { name: 'dev', 'https://hasura.io/jwt/claims': { 'x-hasura-allowed-roles': allowedRoles } }
+      return JSON.stringify({ name: 'dev', 'https://hasura.io/jwt/claims': { 'x-hasura-allowed-roles': allowedRoles } })
     }
   }
 
