@@ -1,4 +1,4 @@
-import checkEnv from '@nitra/check-env'
+import { checkEnv, env } from '@nitra/check-env'
 checkEnv(['X_NITRA_CF_KEY'])
 
 /**
@@ -23,7 +23,7 @@ export default function (req) {
     return false
   }
 
-  if (req.headers['x-nitra-cf-key'] !== process.env.X_NITRA_CF_KEY) {
+  if (req.headers['x-nitra-cf-key'] !== env.X_NITRA_CF_KEY) {
     req.log.info('Not equal Nitra key')
     return false
   }

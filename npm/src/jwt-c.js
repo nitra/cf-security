@@ -5,7 +5,7 @@ import { isDev } from '@nitra/isenv'
  * Check request for Nitra security з токеном в кукі
  *
  * @param {object} req - Fastify  Request for check
- * @return {string} token if check passed
+ * @return {Promise<Object>} token if check passed
  */
 export default async (req, allowedRoles) => {
   if (!req.raw.headers?.cookie) {

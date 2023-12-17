@@ -24,10 +24,11 @@
     "@cspell/dict-uk-ua": "^1.0.20",
     "@nitra/cspell-dict": "^1.0.8",
     "@nitra/eslint-config": "^1.0.8",
-    "@nitra/prettier-config": "^1.0.0"
+    "@nitra/prettier-config": "^1.0.0",
+    "test-director": "^7.0.0"
   },
   "prettier": "@nitra/prettier-config",
-  "packageManager": "yarn@3.3.1",
+  "packageManager": "yarn@4.0.2",
   "eslintConfig": {
     "extends": [
       "@nitra"
