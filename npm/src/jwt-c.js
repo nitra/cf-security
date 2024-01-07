@@ -1,3 +1,4 @@
+// @ts-ignore
 import verify from '@nitra/jwt/verify'
 import { isDev } from '@nitra/isenv'
 

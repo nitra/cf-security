@@ -7,6 +7,7 @@
     "npm"
   ],
   "scripts": {
+    "d.ts": "cd npm && npx -p typescript tsc src/**/*.js --declaration --allowJs --emitDeclarationOnly --outDir types --skipLibCheck",
     "fix": "npx eslint --fix . && npx prettier --write . "
   },
   "repository": {
@@ -34,8 +35,5 @@
       "@nitra"
     ],
     "root": true
-  },
-  "dependencies": {
-    "pem-jwk": "^2.0.0"
   }
 }

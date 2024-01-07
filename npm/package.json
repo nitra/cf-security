@@ -1,8 +1,9 @@
 {
   "name": "@nitra/cf-security",
-  "version": "4.0.3",
+  "version": "4.1.0",
   "description": "check header in serverless",
   "type": "module",
+  "types": "./types/index.d.ts",
   "exports": {
     ".": "./src/index.js",
     "./jwt": "./src/jwt.js",
@@ -25,10 +26,11 @@
     "@nitra/bunyan": "^2.0.1",
     "@nitra/check-env": "^3.0.0",
     "@nitra/isenv": "^2.0.1",
-    "@nitra/jwt": "^3.5.1"
+    "@nitra/jwt": "^3.6.0"
   },
   "files": [
-    "src"
+    "src",
+    "types"
   ],
   "engines": {
     "node": ">=18.0.0"

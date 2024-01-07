@@ -1,4 +1,4 @@
-import { cfSecurity } from '../src/index.js'
+import cfSecurity from '../src/index.js'
 import runSecurity from '../src/jwt.js'
 import { equal } from 'assert'
 import TestDirector from 'test-director'

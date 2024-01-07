@@ -213,21 +213,21 @@ __metadata:
     "@nitra/bunyan": "npm:^2.0.1"
     "@nitra/check-env": "npm:^3.0.0"
     "@nitra/isenv": "npm:^2.0.1"
-    "@nitra/jwt": "npm:^3.5.1"
+    "@nitra/jwt": "npm:^3.6.0"
   languageName: unknown
   linkType: soft
-
-"@nitra/check-env@npm:^2.0.2":
-  version: 2.0.7
-  resolution: "@nitra/check-env@npm:2.0.7"
-  checksum: 0927e441e9e7bc7c3f692d91e36daac9e3d281a4b4ea96a72ec1063e64a74e5f72af83a76fafa674e4ee32403deff9b5476b163b2d8efffc5cdafeb8c6eb9632
-  languageName: node
-  linkType: hard
 
 "@nitra/check-env@npm:^3.0.0":
   version: 3.0.0
   resolution: "@nitra/check-env@npm:3.0.0"
   checksum: 8c04851f1582e387366a65c0a2100700469bb804dc5f912f7485346d99884b67af8675a8c6d7ad1c686fa90ddf1dc4589107ee03c75a2d01ee1e8105f0350291
+  languageName: node
+  linkType: hard
+
+"@nitra/check-env@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "@nitra/check-env@npm:3.1.0"
+  checksum: 95a91655540f9b548a2e6fb0745d118bdf7ad3a136e939a0cb50f4670db1e8d4dc25b73f5e292d80f29e32080afa856026dae713cd85f505ea551e71c91d2f40
   languageName: node
   linkType: hard
 
@@ -272,16 +272,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nitra/jwt@npm:^3.5.1":
-  version: 3.5.1
-  resolution: "@nitra/jwt@npm:3.5.1"
+"@nitra/jwt@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "@nitra/jwt@npm:3.6.0"
   dependencies:
-    "@nitra/check-env": "npm:^2.0.2"
+    "@nitra/check-env": "npm:^3.1.0"
     "@nitra/isenv": "npm:^2.0.1"
     "@nitra/njwt": "npm:^1.2.2"
-    get-jwks: "npm:^4.3.0"
-    jsrsasign: "npm:^10.4.1"
-  checksum: 46736a10f9cae9481d7330d16e0a04cd8d6b41ba2f2e5ed3eb8be388d78bbbc8c44c84844cfa24e9abee422bb92fe05ed65bea5867b0a1e9857af0bfe61ec4c4
+    get-jwks: "npm:^9.0.0"
+    jsrsasign: "npm:^10.9.0"
+  checksum: 0c26a9ae60861136434ea48ebcad6591acca08bd47465ddedb39f57b93eacb398a2228251b5b516e1a47a9ec3fb6d3ee348f132c182c4d7e6cdf2fb0b38d7c77
   languageName: node
   linkType: hard
 
@@ -662,7 +662,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"asn1.js@npm:^5.0.1, asn1.js@npm:^5.3.0":
+"asn1.js@npm:^5.3.0":
   version: 5.4.1
   resolution: "asn1.js@npm:5.4.1"
   dependencies:
@@ -1783,14 +1783,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"get-jwks@npm:^4.3.0":
-  version: 4.3.0
-  resolution: "get-jwks@npm:4.3.0"
+"get-jwks@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "get-jwks@npm:9.0.0"
   dependencies:
     jwk-to-pem: "npm:^2.0.4"
-    lru-cache: "npm:^6.0.0"
+    lru-cache: "npm:^10.0.0"
     node-fetch: "npm:^2.6.1"
-  checksum: e698cb23839f716d2c29563d75313d7acd483a45037b8d35d85882a4ba57861bef8844c631e2d2249810e0fe50b8d2b0ca20c172a78cbea819eff3a062cfedc6
+  checksum: 2aaa16e712ab89217249d9bb822dda49c84a15419a5a20be16345134499cc6bd3ac4f11d55ee40c1797def959b77a6d8ad164d34dba7fcd38201612d4b761659
   languageName: node
   linkType: hard
 
@@ -2363,10 +2363,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsrsasign@npm:^10.4.1":
-  version: 10.6.1
-  resolution: "jsrsasign@npm:10.6.1"
-  checksum: b72a91c18bcda4278d57fd247438b459d018a841f1694bd76672ef467d45b8326452aa22d95caf7f21cf46e30c3b2d5f5808147dd23adc5f509a7ac116ae1a8f
+"jsrsasign@npm:^10.9.0":
+  version: 10.9.0
+  resolution: "jsrsasign@npm:10.9.0"
+  checksum: a2eaf2680b8bb26100514014155b06151bfcf5f073190fdc228c9b5faf6284424e7c8e1eaba4968f820b57cddfd2e8a3f514aeec31fd57ceff39f1f10adf6afd
   languageName: node
   linkType: hard
 
@@ -2481,6 +2481,13 @@ __metadata:
   bin:
     loose-envify: cli.js
   checksum: 6517e24e0cad87ec9888f500c5b5947032cdfe6ef65e1c1936a0c48a524b81e65542c9c3edc91c97d5bddc806ee2a985dbc79be89215d613b1de5db6d1cfe6f4
+  languageName: node
+  linkType: hard
+
+"lru-cache@npm:^10.0.0":
+  version: 10.1.0
+  resolution: "lru-cache@npm:10.1.0"
+  checksum: 207278d6fa711fb1f94a0835d4d4737441d2475302482a14785b10515e4c906a57ebf9f35bf060740c9560e91c7c1ad5a04fd7ed030972a9ba18bce2a228e95b
   languageName: node
   linkType: hard
 
@@ -2758,7 +2765,6 @@ __metadata:
     "@nitra/cspell-dict": "npm:^1.0.8"
     "@nitra/eslint-config": "npm:^1.0.8"
     "@nitra/prettier-config": "npm:^1.0.0"
-    pem-jwk: "npm:^2.0.0"
     test-director: "npm:^7.0.0"
   languageName: unknown
   linkType: soft
@@ -3009,17 +3015,6 @@ __metadata:
   version: 1.0.7
   resolution: "path-parse@npm:1.0.7"
   checksum: 49abf3d81115642938a8700ec580da6e830dde670be21893c62f4e10bd7dd4c3742ddc603fe24f898cba7eb0c6bc1777f8d9ac14185d34540c6d4d80cd9cae8a
-  languageName: node
-  linkType: hard
-
-"pem-jwk@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "pem-jwk@npm:2.0.0"
-  dependencies:
-    asn1.js: "npm:^5.0.1"
-  bin:
-    pem-jwk: ./bin/pem-jwk.js
-  checksum: 2368582959b57c70194279d79ecc04c6dd9aabff232323e545bc04d0cdd8f0cd1c764ec5316f01210614359bb3a107fe06242595c09bf600a40e8ee271c28a22
   languageName: node
   linkType: hard
 
