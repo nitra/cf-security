@@ -213,7 +213,7 @@ __metadata:
     "@nitra/bunyan": "npm:^2.0.1"
     "@nitra/check-env": "npm:^3.0.0"
     "@nitra/isenv": "npm:^2.0.1"
-    "@nitra/jwt": "npm:^3.6.0"
+    "@nitra/jwt": "npm:^3.7.0"
   languageName: unknown
   linkType: soft
 
@@ -272,16 +272,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nitra/jwt@npm:^3.6.0":
-  version: 3.6.0
-  resolution: "@nitra/jwt@npm:3.6.0"
+"@nitra/jwt@npm:^3.7.0":
+  version: 3.7.0
+  resolution: "@nitra/jwt@npm:3.7.0"
   dependencies:
     "@nitra/check-env": "npm:^3.1.0"
     "@nitra/isenv": "npm:^2.0.1"
     "@nitra/njwt": "npm:^1.2.2"
     get-jwks: "npm:^9.0.0"
     jsrsasign: "npm:^10.9.0"
-  checksum: 0c26a9ae60861136434ea48ebcad6591acca08bd47465ddedb39f57b93eacb398a2228251b5b516e1a47a9ec3fb6d3ee348f132c182c4d7e6cdf2fb0b38d7c77
+  checksum: a43a3d096dfd979ff6977b6e1dccc86338502ad5ca7f4121ceefd5c62c863a1bba4732f6896f7c9c9f92dec7e8170fa418362d6643f2fe3eca18496733b3c4e3
   languageName: node
   linkType: hard
 
