@@ -1,6 +1,6 @@
-// @ts-ignore
 import verify from '@nitra/jwt/verify'
 import { isDev } from '@nitra/isenv'
+import { intersection } from './utils/intersection.js'
 
 /**
  * Check request for Nitra security з токеном в кукі
@@ -9,6 +9,18 @@ import { isDev } from '@nitra/isenv'
  * @return {Promise<Object>} token if check passed
  */
 export default async (req, allowedRoles) => {
+  const { parsed } = await runSecurityCookie(req, allowedRoles)
+  return parsed.body
+}
+
+/**
+ * Check request for Nitra security rules WI
+ *
+ * @param {object} req - Fastify  Request for check
+ * @param {Array} allowedRoles - Allowed roles
+ * @return {Promise<Object>} token if check passed
+ */
+export const runSecurityCookie = async (req, allowedRoles) => {
   if (!req.raw.headers?.cookie) {
     throw new Error('[verification] missing cookie')
   }
@@ -46,10 +58,5 @@ export default async (req, allowedRoles) => {
     throw new Error(`[verification] unallowed roles ${roleArray}`)
   }
 
-  return token.body
-}
-
-function intersection(a, b) {
-  const setA = new Set(a)
-  return b.filter(value => setA.has(value))
+  return { raw: c.__session, parsed: token.body }
 }

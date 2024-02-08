@@ -1,13 +1,14 @@
 {
   "name": "@nitra/cf-security",
-  "version": "4.2.0",
+  "version": "4.4.0",
   "description": "check header in serverless",
   "type": "module",
   "types": "./types/index.d.ts",
   "exports": {
     ".": "./src/index.js",
     "./jwt": "./src/jwt.js",
-    "./jwt-c": "./src/jwt-c.js"
+    "./jwt-c": "./src/jwt-c.js",
+    "./jwt-both": "./src/jwt-both.js"
   },
   "scripts": {
     "test": "env $(cat ./test/.env) npx coverage-node test/index.js"
@@ -24,7 +25,7 @@
   "homepage": "https://github.com/nitra/cf-security#readme",
   "dependencies": {
     "@nitra/bunyan": "^2.0.1",
-    "@nitra/check-env": "^3.0.0",
+    "@nitra/check-env": "^3.1.0",
     "@nitra/isenv": "^2.0.1",
     "@nitra/jwt": "^3.7.0"
   },

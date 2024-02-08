@@ -1,5 +1,6 @@
 import verify from '@nitra/jwt/verify'
 import { isDev } from '@nitra/isenv'
+import { intersection } from './utils/intersection.js'
 
 /**
  * Check request for Nitra security rules WI
@@ -9,6 +10,18 @@ import { isDev } from '@nitra/isenv'
  * @return {Promise<string>} token if check passed
  */
 export default async (req, allowedRoles) => {
+  const { parsed } = await runSecurityHeader(req, allowedRoles)
+  return parsed.body
+}
+
+/**
+ * Check request for Nitra security rules WI
+ *
+ * @param {object} req - Fastify  Request for check
+ * @param {Array} allowedRoles - Allowed roles
+ * @return {Promise<Object>} token if check passed
+ */
+export const runSecurityHeader = async (req, allowedRoles) => {
   // Для дева можна й не передавати токен
   if (isDev) {
     // Але якщо передали - то беремо контент з нього
@@ -50,10 +63,5 @@ export default async (req, allowedRoles) => {
     throw new Error(`[verification] unallowed roles ${roleArray}`)
   }
 
-  return token.body
-}
-
-function intersection(a, b) {
-  const setA = new Set(a)
-  return b.filter(value => setA.has(value))
+  return { raw: authHeaders[1], parsed: token.body }
 }
