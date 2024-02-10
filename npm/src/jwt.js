@@ -11,7 +11,7 @@ import { intersection } from './utils/intersection.js'
  */
 export default async (req, allowedRoles) => {
   const { parsed } = await runSecurityHeader(req, allowedRoles)
-  return parsed.body
+  return parsed
 }
 
 /**
@@ -38,9 +38,10 @@ export const runSecurityHeader = async (req, allowedRoles) => {
         throw new Error(`[verification] unallowed roles ${allowedRoles}`)
       }
 
-      return token.body
+      const authHeaders = req.headers.authorization.split(' ')
+      return { raw: authHeaders[1], parsed: token.body }
     } else {
-      return JSON.stringify({ name: 'dev', 'https://hasura.io/jwt/claims': { 'x-hasura-allowed-roles': allowedRoles } })
+      return { parsed: { name: 'dev', 'https://hasura.io/jwt/claims': { 'x-hasura-allowed-roles': allowedRoles } } }
     }
   }
 

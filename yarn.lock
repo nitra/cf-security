@@ -211,18 +211,11 @@ __metadata:
   resolution: "@nitra/cf-security@workspace:npm"
   dependencies:
     "@nitra/bunyan": "npm:^2.0.1"
-    "@nitra/check-env": "npm:^3.0.0"
+    "@nitra/check-env": "npm:^3.1.0"
     "@nitra/isenv": "npm:^2.0.1"
     "@nitra/jwt": "npm:^3.7.0"
   languageName: unknown
   linkType: soft
-
-"@nitra/check-env@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@nitra/check-env@npm:3.0.0"
-  checksum: 8c04851f1582e387366a65c0a2100700469bb804dc5f912f7485346d99884b67af8675a8c6d7ad1c686fa90ddf1dc4589107ee03c75a2d01ee1e8105f0350291
-  languageName: node
-  linkType: hard
 
 "@nitra/check-env@npm:^3.1.0":
   version: 3.1.0
