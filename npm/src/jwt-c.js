@@ -34,9 +34,12 @@ export const runSecurityCookie = async (req, allowedRoles) => {
     if (c.__session) {
       // ігноруючи expired
       const token = await verify(c.__session, { ignoreExpiration: true })
-      return token.body
+      return { raw: c.__session, parsed: token.body }
     } else {
-      return { name: 'dev', 'https://hasura.io/jwt/claims': { 'x-hasura-allowed-roles': allowedRoles } }
+      return {
+        raw: 0,
+        parsed: { name: 'dev', 'https://hasura.io/jwt/claims': { 'x-hasura-allowed-roles': allowedRoles } }
+      }
     }
   }
 
