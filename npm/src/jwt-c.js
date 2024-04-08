@@ -10,7 +10,7 @@ import { intersection } from './utils/intersection.js'
  */
 export default async (req, allowedRoles) => {
   const { parsed } = await runSecurityCookie(req, allowedRoles)
-  return parsed.body
+  return parsed
 }
 
 /**
