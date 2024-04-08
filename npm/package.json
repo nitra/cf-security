@@ -1,6 +1,6 @@
 {
   "name": "@nitra/cf-security",
-  "version": "4.5.1",
+  "version": "4.5.2",
   "description": "check header in serverless",
   "type": "module",
   "types": "./types/index.d.ts",
