@@ -15,8 +15,6 @@ jobs:
       id-token: 'write'
 
     steps:
-      - uses: actions/checkout@v3
-
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v0'
@@ -30,9 +28,22 @@ jobs:
           secrets: |-
             npm-token:nitraai/npm-token
 
+      - uses: actions/checkout@v4
+
       - name: publish
         run: >-
-          npx @jsdevtools/npm-publish 
-          --token=${{ steps.secrets.outputs.npm-token }} 
-          --access=public 
+          npx @jsdevtools/npm-publish
+          --token=${{ steps.secrets.outputs.npm-token }}
+          --access=public
           npm/package.json
+
+      - name: Vulnerability - library
+        uses: aquasecurity/trivy-action@0.24.0
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          vuln-type: 'library'
+          scanners: 'vuln'
+          ignore-unfixed: true
+          format: 'table'
+          exit-code: '1'

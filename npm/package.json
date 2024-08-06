@@ -1,6 +1,6 @@
 {
   "name": "@nitra/cf-security",
-  "version": "4.5.2",
+  "version": "4.5.3",
   "description": "check header in serverless",
   "type": "module",
   "types": "./types/index.d.ts",
@@ -24,10 +24,10 @@
   },
   "homepage": "https://github.com/nitra/cf-security#readme",
   "dependencies": {
-    "@nitra/bunyan": "^2.0.1",
-    "@nitra/check-env": "^3.1.0",
+    "@nitra/bunyan": "^2.0.3",
+    "@nitra/check-env": "^3.2.0",
     "@nitra/isenv": "^2.0.1",
-    "@nitra/jwt": "^3.7.0"
+    "@nitra/jwt": "^3.7.1"
   },
   "files": [
     "src",
