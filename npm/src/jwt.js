@@ -4,10 +4,9 @@ import { intersection } from './utils/intersection.js'
 
 /**
  * Check request for Nitra security rules WI
- *
  * @param {object} req - Fastify  Request for check
  * @param {Array} allowedRoles - Allowed roles
- * @return {Promise<string>} token if check passed
+ * @returns {Promise<string>} token if check passed
  */
 export default async (req, allowedRoles) => {
   const { parsed } = await runSecurityHeader(req, allowedRoles)
@@ -16,10 +15,9 @@ export default async (req, allowedRoles) => {
 
 /**
  * Check request for Nitra security rules WI
- *
  * @param {object} req - Fastify  Request for check
  * @param {Array} allowedRoles - Allowed roles
- * @return {Promise<Object>} token if check passed
+ * @returns {Promise<object>} token if check passed
  */
 export const runSecurityHeader = async (req, allowedRoles) => {
   // Для дева можна й не передавати токен

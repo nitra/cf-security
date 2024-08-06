@@ -29,11 +29,5 @@
     "test-director": "^11.0.0"
   },
   "prettier": "@nitra/prettier-config",
-  "packageManager": "yarn@4.4.0",
-  "eslintConfig": {
-    "extends": [
-      "@nitra"
-    ],
-    "root": true
-  }
+  "packageManager": "yarn@4.4.0"
 }

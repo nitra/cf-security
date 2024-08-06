@@ -3,17 +3,16 @@ checkEnv(['X_NITRA_CF_KEY'])
 
 /**
  * Check request for Nitra security rules
- *
  * @param {object} req - ApolloServer or Express Request for check
- * @return {boolean} if check passed
+ * @returns {boolean} if check passed
  */
 export default function (req) {
-  if (typeof req.headers === 'undefined') {
+  if (req.headers === undefined) {
     req.log.info('Request without headers')
     return false
   }
 
-  if (typeof req.headers['x-nitra-cf-key'] === 'undefined') {
+  if (req.headers['x-nitra-cf-key'] === undefined) {
     req.log.info('Nitra key not exist in request')
     return false
   }

@@ -1,6 +1,7 @@
 import cfSecurity from '../src/index.js'
 import runSecurity from '../src/jwt-both.js'
-import { equal } from 'assert'
+import { equal } from 'node:assert'
+// eslint-disable-next-line n/no-extraneous-import
 import TestDirector from 'test-director'
 
 const tests = new TestDirector()
@@ -24,8 +25,8 @@ tests.add('jwt', async () => {
     )
 
     equal(re, false)
-  } catch (e) {
-    console.log(e)
+  } catch (error) {
+    console.log(error)
   }
 })
 

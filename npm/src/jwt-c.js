@@ -4,9 +4,9 @@ import { intersection } from './utils/intersection.js'
 
 /**
  * Check request for Nitra security з токеном в кукі
- *
  * @param {object} req - Fastify  Request for check
- * @return {Promise<Object>} token if check passed
+ * @param allowedRoles
+ * @returns {Promise<object>} token if check passed
  */
 export default async (req, allowedRoles) => {
   const { parsed } = await runSecurityCookie(req, allowedRoles)
@@ -15,10 +15,9 @@ export default async (req, allowedRoles) => {
 
 /**
  * Check request for Nitra security rules WI
- *
  * @param {object} req - Fastify  Request for check
  * @param {Array} allowedRoles - Allowed roles
- * @return {Promise<Object>} token if check passed
+ * @returns {Promise<object>} token if check passed
  */
 export const runSecurityCookie = async (req, allowedRoles) => {
   if (!req.raw.headers?.cookie) {
@@ -26,7 +25,9 @@ export const runSecurityCookie = async (req, allowedRoles) => {
   }
 
   // Читаємо кукі
-  const c = Object.fromEntries(req.raw.headers.cookie.split('; ').map(v => v.split(/=(.*)/s).map(decodeURIComponent)))
+  const c = Object.fromEntries(
+    req.raw.headers.cookie.split('; ').map(v => v.split(/=(.*)/s).map(x => decodeURIComponent(x)))
+  )
 
   // Для дева можна й не передавати токен
   if (isDev) {
