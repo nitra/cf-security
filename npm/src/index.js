@@ -1,4 +1,5 @@
 import { checkEnv, env } from '@nitra/check-env'
+
 checkEnv(['X_NITRA_CF_KEY'])
 
 /**

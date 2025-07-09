@@ -35,5 +35,5 @@ jobs:
       - name: Install Dependencies
         run: yarn install
 
-      - name: Eslint
-        run: yarn dlx eslint .
+      - run: npx oxlint
+      - run: npx eslint .

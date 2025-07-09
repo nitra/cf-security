@@ -38,11 +38,10 @@ export const runSecurityHeader = async (req, allowedRoles) => {
 
       const authHeaders = req.headers.authorization.split(' ')
       return { raw: authHeaders[1], parsed: token.body }
-    } else {
-      return {
-        raw: 0,
-        parsed: { name: 'dev', 'https://hasura.io/jwt/claims': { 'x-hasura-allowed-roles': allowedRoles } }
-      }
+    }
+    return {
+      raw: 0,
+      parsed: { name: 'dev', 'https://hasura.io/jwt/claims': { 'x-hasura-allowed-roles': allowedRoles } }
     }
   }
 

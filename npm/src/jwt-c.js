@@ -1,11 +1,11 @@
-import verify from '@nitra/jwt/verify'
 import { isDev } from '@nitra/isenv'
+import verify from '@nitra/jwt/verify'
 import { intersection } from './utils/intersection.js'
 
 /**
  * Check request for Nitra security з токеном в кукі
  * @param {object} req - Fastify  Request for check
- * @param allowedRoles
+ * @param {Array<string>} allowedRoles - Allowed roles
  * @returns {Promise<object>} token if check passed
  */
 export default async (req, allowedRoles) => {
@@ -26,7 +26,7 @@ export const runSecurityCookie = async (req, allowedRoles) => {
 
   // Читаємо кукі
   const c = Object.fromEntries(
-    req.raw.headers.cookie.split('; ').map(v => v.split(/=(.*)/s).map(x => decodeURIComponent(x)))
+    req.raw.headers.cookie.split('; ').map(v => v.split(/[=](.*)/s).map(x => decodeURIComponent(x)))
   )
 
   // Для дева можна й не передавати токен
@@ -36,11 +36,10 @@ export const runSecurityCookie = async (req, allowedRoles) => {
       // ігноруючи expired
       const token = await verify(c.__session, { ignoreExpiration: true })
       return { raw: c.__session, parsed: token.body }
-    } else {
-      return {
-        raw: 0,
-        parsed: { name: 'dev', 'https://hasura.io/jwt/claims': { 'x-hasura-allowed-roles': allowedRoles } }
-      }
+    }
+    return {
+      raw: 0,
+      parsed: { name: 'dev', 'https://hasura.io/jwt/claims': { 'x-hasura-allowed-roles': allowedRoles } }
     }
   }
 
