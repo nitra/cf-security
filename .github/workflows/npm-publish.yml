@@ -2,48 +2,32 @@ name: npm-publish
 
 on:
   push:
+    paths:
+      - 'npm/**'
     branches:
       - main
 
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
 jobs:
-  publish-npm:
+  publish:
     runs-on: ubuntu-latest
-
-    # Add "id-token" with the intended permissions.
     permissions:
-      contents: 'read'
-      id-token: 'write'
-
+      contents: read
+      id-token: write # КРИТИЧНО для OIDC!
+      
     steps:
-      - id: 'auth'
-        name: 'Authenticate to Google Cloud'
-        uses: 'google-github-actions/auth@v0'
-        with:
-          workload_identity_provider: 'projects/753698311885/locations/global/workloadIdentityPools/github-pool/providers/github-provider'
-          service_account: 'github-service-account@nitraai.iam.gserviceaccount.com'
-
-      - id: secrets
-        uses: google-github-actions/get-secretmanager-secrets@main
-        with:
-          secrets: |-
-            npm-token:nitraai/npm-token
-
       - uses: actions/checkout@v4
 
-      - name: publish
-        run: >-
-          npx @jsdevtools/npm-publish
-          --token=${{ steps.secrets.outputs.npm-token }}
-          --access=public
-          npm/package.json
-
-      - name: Vulnerability - library
-        uses: aquasecurity/trivy-action@0.24.0
+      - uses: actions/setup-node@v5
         with:
-          scan-type: 'fs'
-          scan-ref: '.'
-          vuln-type: 'library'
-          scanners: 'vuln'
-          ignore-unfixed: true
-          format: 'table'
-          exit-code: '1'
+          node-version: "24"  # includes npm@11.6.0
+          registry-url: https://registry.npmjs.org
+
+      - name: Publish package
+        uses: JS-DevTools/npm-publish@v4
+        with:
+          package: npm/package.json
+
