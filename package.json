@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "d.ts": "cd npm && npx -p typescript tsc src/**/*.js --declaration --allowJs --emitDeclarationOnly --outDir types --skipLibCheck",
-    "fix": "npx eslint --fix . && npx prettier --write . "
+    "fix": "npx eslint --fix . && oxfmt "
   },
   "repository": {
     "type": "git",
@@ -21,13 +21,10 @@
   },
   "homepage": "https://github.com/nitra/cf-security#readme",
   "devDependencies": {
-    "@cspell/dict-ru_ru": "^2.3.0",
-    "@cspell/dict-uk-ua": "^4.0.4",
-    "@nitra/cspell-dict": "^1.0.163",
-    "@nitra/eslint-config": "^3.0.3",
-    "@nitra/prettier-config": "^1.0.1",
+    "@cspell/dict-ru_ru": "^2.3.2",
+    "@cspell/dict-uk-ua": "^4.0.6",
+    "@nitra/cspell-dict": "^1.0.185",
+    "@nitra/eslint-config": "^3.1.7",
     "test-director": "^11.0.0"
-  },
-  "prettier": "@nitra/prettier-config",
-  "packageManager": "yarn@4.9.2"
+  }
 }
