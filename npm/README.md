@@ -8,7 +8,7 @@ Check security header in Cloud Functions
 X_NITRA_CF_KEY: secret
 ```
 
-```JavaScript
+```js
 const { cfSecurity } = require('@nitra/cf-security')
 
 exports.function = async (req, res) => {
