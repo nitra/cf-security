@@ -1,6 +1,6 @@
 {
   "name": "@nitra/cf-security",
-  "version": "5.2.0",
+  "version": "6.1.0",
   "description": "check header in serverless",
   "homepage": "https://github.com/nitra/cf-security#readme",
   "bugs": {
