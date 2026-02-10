@@ -18,7 +18,7 @@ exports.function = async (req, res) => {
   }
 ```
 
-```JavaScript
+```js
 import runSecurity from '@nitra/cf-security'
 
   if (!runSecurity(req, ["role1","role2"])) {

@@ -26,8 +26,18 @@ jobs:
         with:
           node-version: '24' # includes npm@11.6.0
           registry-url: https://registry.npmjs.org
-
-      - name: Publish package
+      - name: Publish package (v5 tag)
+        if: ${{ github.ref_name == 'v5' }}
         uses: JS-DevTools/npm-publish@v4
         with:
           package: npm/package.json
+          tag: v5
+          provenance: true
+
+      - name: Publish package (latest tag)
+        if: ${{ github.ref_name == 'main' }}
+        uses: JS-DevTools/npm-publish@v4
+        with:
+          package: npm/package.json
+          tag: latest
+          provenance: true
