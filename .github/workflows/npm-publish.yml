@@ -6,6 +6,7 @@ on:
       - 'npm/**'
     branches:
       - main
+      - v5
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
@@ -17,17 +18,16 @@ jobs:
     permissions:
       contents: read
       id-token: write # КРИТИЧНО для OIDC!
-      
+
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v5
         with:
-          node-version: "24"  # includes npm@11.6.0
+          node-version: '24' # includes npm@11.6.0
           registry-url: https://registry.npmjs.org
 
       - name: Publish package
         uses: JS-DevTools/npm-publish@v4
         with:
           package: npm/package.json
-

@@ -1,7 +1,21 @@
 {
   "name": "@nitra/cf-security",
-  "version": "6.0.0",
+  "version": "5.2.0",
   "description": "check header in serverless",
+  "homepage": "https://github.com/nitra/cf-security#readme",
+  "bugs": {
+    "url": "https://github.com/nitra/cf-security/issues"
+  },
+  "license": "ISC",
+  "author": "v@nitra.ai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitra/cf-security.git"
+  },
+  "files": [
+    "src",
+    "types"
+  ],
   "type": "module",
   "types": "./types/index.d.ts",
   "exports": {
@@ -13,25 +27,11 @@
   "scripts": {
     "test": "env $(cat ./test/.env) npx coverage-node test/index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nitra/cf-security.git"
-  },
-  "author": "v@nitra.ai",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nitra/cf-security/issues"
-  },
-  "homepage": "https://github.com/nitra/cf-security#readme",
   "dependencies": {
     "@nitra/check-env": "^4.1.1",
     "@nitra/isenv": "^2.0.1",
-    "@nitra/jwt": "^5.0.0"
+    "@nitra/jwt": "^4.0.3"
   },
-  "files": [
-    "src",
-    "types"
-  ],
   "engines": {
     "node": ">=20.0.0"
   }

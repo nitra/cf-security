@@ -10,7 +10,11 @@ import { runSecurityHeader } from './jwt.js'
 export default async (req, allowedRoles) => {
   // oxlint-disable-line require-await
   if (req.headers.authorization) {
-    return runSecurityHeader(req, allowedRoles)
+    const authHeaders = req.headers.authorization.split(' ')
+    // Якщо це Basic авторизація, то беремо токен з Cookie
+    if (authHeaders[0] === 'Bearer') {
+      return runSecurityHeader(req, allowedRoles)
+    }
   }
   return runSecurityCookie(req, allowedRoles)
 }

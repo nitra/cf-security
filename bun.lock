@@ -14,11 +14,11 @@
     },
     "npm": {
       "name": "@nitra/cf-security",
-      "version": "5.1.0",
+      "version": "5.2.0",
       "dependencies": {
         "@nitra/check-env": "^4.1.1",
         "@nitra/isenv": "^2.0.1",
-        "@nitra/jwt": "^5.0.0",
+        "@nitra/jwt": "^4.0.3",
       },
     },
   },
@@ -77,7 +77,7 @@
 
     "@nitra/isenv": ["@nitra/isenv@2.0.1", "", {}, "sha512-MZEOmA36RNe455xWlnA4aHy4WvPur7+cNT8JEKjiS5I2KabBO1SxGqNIJP4/kmMnNyU6sHZj2Ihdf2Qr7QG3yQ=="],
 
-    "@nitra/jwt": ["@nitra/jwt@5.0.0", "", { "dependencies": { "@nitra/check-env": "^4.0.0", "@nitra/isenv": "^2.0.1", "@nitra/njwt": "^1.2.2", "get-jwks": "^11.0.1", "jsrsasign": "^11.1.0" } }, "sha512-/ah6RZrLzbP2FjNpp4P09TUpwBYSAPbG8h10vg06bEm4UQRE7gIm0HNlxE374GUyA9yDBELaStuITg8hNJADuA=="],
+    "@nitra/jwt": ["@nitra/jwt@4.0.5", "", { "dependencies": { "@nitra/check-env": "^4.0.0", "@nitra/isenv": "^2.0.1", "@nitra/njwt": "^1.2.2", "get-jwks": "^11.0.1", "jsrsasign": "^11.1.0" } }, "sha512-4FlGmQnpR9GZ0P+nkit+z2Q/tExpySjvJDZfmO6+tUMUhioVEM/dBSFI/9FSVcB3UchQsA5wGCL2eVLXq9cP9Q=="],
 
     "@nitra/njwt": ["@nitra/njwt@1.2.2", "", { "dependencies": { "@types/node": "^15.0.1", "ecdsa-sig-formatter": "^1.0.5", "uuid": "^8.3.2" } }, "sha512-/GCjEIsnfd6L/C5A1RcC9XJMtnaYz0x+1U/7ho1Ey4z/VY9isHZwFb83bZWhbNzzGF8zhbxwWga8Y0upr/nOQQ=="],
 

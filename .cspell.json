@@ -1,13 +1,7 @@
 {
   "version": "0.2",
   "language": "en,uk,ru-ru,nitra",
-  "ignorePaths": [
-    "**/node_modules/**",
-    "**/vscode-extension/**",
-    "**/.git/**",
-    ".vscode",
-    "report"
-  ],
+  "ignorePaths": ["**/node_modules/**", "**/vscode-extension/**", "**/.git/**", ".vscode", "report"],
   "import": [
     "@nitra/cspell-dict/cspell-ext.json",
     "@cspell/dict-ru_ru/cspell-ext.json",

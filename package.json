@@ -2,24 +2,24 @@
   "name": "nitra-cf-security",
   "version": "1.0.0",
   "description": "jwt create verify",
-  "type": "module",
-  "workspaces": [
-    "npm"
-  ],
-  "scripts": {
-    "d.ts": "cd npm && npx -p typescript tsc src/**/*.js --declaration --allowJs --emitDeclarationOnly --outDir types --skipLibCheck",
-    "fix": "npx eslint --fix . && oxfmt "
+  "homepage": "https://github.com/nitra/cf-security#readme",
+  "bugs": {
+    "url": "https://github.com/nitra/cf-security/issues"
   },
+  "license": "ISC",
+  "author": "v@nitra.ai",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nitra/cf-security.git"
   },
-  "author": "v@nitra.ai",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nitra/cf-security/issues"
+  "workspaces": [
+    "npm"
+  ],
+  "type": "module",
+  "scripts": {
+    "d.ts": "cd npm && npx -p typescript tsc src/**/*.js --declaration --allowJs --emitDeclarationOnly --outDir types --skipLibCheck",
+    "fix": "npx eslint --fix . && oxfmt "
   },
-  "homepage": "https://github.com/nitra/cf-security#readme",
   "devDependencies": {
     "@cspell/dict-ru_ru": "^2.3.2",
     "@cspell/dict-uk-ua": "^4.0.6",
